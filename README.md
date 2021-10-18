@@ -1,10 +1,9 @@
-<center>
 
-# kiero-cmake
+<h1 align="center"> kiero-cmake </h1>
+<p align="center">
+A CMake compatible version of <a href="https://github.com/Rebzzel/kiero">kiero</a>, no manual header manipulation required!
+</p>
 
-A CMake compatible version of [kiero](https://github.com/Rebzzel/kiero), no manual header manipulation required!
-
-</center>
 
 ---
 
