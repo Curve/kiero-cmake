@@ -39,17 +39,17 @@ endif()
 # --------------------------------------------------------------------------------------------------------
 
 if (${kiero_backend} STREQUAL "D3D9")
-target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_INCLUDE_D3D9)
+    target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_INCLUDE_D3D9)
 elseif(${kiero_backend} STREQUAL "D3D10")
-target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_INCLUDE_D3D10)
+    target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_INCLUDE_D3D10)
 elseif(${kiero_backend} STREQUAL "D3D11")
-target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_INCLUDE_D3D11)
+    target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_INCLUDE_D3D11)
 elseif(${kiero_backend} STREQUAL "D3D12")
-target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_INCLUDE_D3D12)
+    target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_INCLUDE_D3D12)
 elseif(${kiero_backend} STREQUAL "OpenGL")
-target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_INCLUDE_OPENGL)
+    target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_INCLUDE_OPENGL)
 elseif(${kiero_backend} STREQUAL "Vulkan")
-target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_INCLUDE_VULKAN)
+    target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_INCLUDE_VULKAN)
 endif()
 
 # --------------------------------------------------------------------------------------------------------
