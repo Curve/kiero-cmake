@@ -31,6 +31,7 @@ set(kiero_minhook ON)
 - Git Submodule
     ```bash
     git submodule add "https://github.com/Curve/kiero"
+    git submodule update --init --recursive
     ```
     ```cmake
     # Somewhere in your CMakeLists.txt
