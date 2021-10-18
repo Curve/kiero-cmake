@@ -15,7 +15,7 @@ set(kiero_backend "<backend-type>")
 where <kbd>backend-type</kbd> is one of `D3D9`,`D3D10`,`D3D11`,`D3D12`,`OpenGL`,`Vulkan`.
 ### MinHook
 ```cmake
-set(USE_MINHOOK ON)
+set(kiero_minhook ON)
 ```
 > If this option is set to true `find_package(minhook)` is ran, if minhook is then found it will be linked, otherwise it is up to the user to link minhook.
 
