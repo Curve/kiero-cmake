@@ -17,7 +17,7 @@ where <kbd>backend-type</kbd> is one of `D3D9`,`D3D10`,`D3D11`,`D3D12`,`OpenGL`,
 ```cmake
 set(kiero_minhook ON)
 ```
-> If this option is set to true `find_package(minhook)` is ran, if minhook is then found it will be linked, otherwise it is up to the user to link minhook.
+> If this option is set to `ON` an already existing minhook package will be searched, in case none is found MinHook will be made available through <kbd>FetchContent</kbd>
 
 ## 📎 Installation
 - FetchContent
