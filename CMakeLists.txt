@@ -64,12 +64,18 @@ endif()
 if (kiero_minhook)
     find_package(minhook QUIET)
     
-    if (TARGET minhook::minhook)
-        message(STATUS "Linking MinHook")
-        target_link_libraries(${PROJECT_NAME} PRIVATE minhook::minhook)
-    else()
-        message(STATUS "Could not link minhook")
+    if (NOT TARGET minhook::minhook)
+        message(STATUS "Making MinHook available")
+        
+        include(FetchContent)
+        FetchContent_Declare(minhook GIT_REPOSITORY "https://github.com/TsudaKageyu/minhook")
+
+        FetchContent_MakeAvailable(minhook)
+        add_library(minhook::minhook ALIAS minhook) # minhook::minhook is the package name we get with vpckg.
     endif()
+
+    message(STATUS "Linking MinHook")
+    target_link_libraries(${PROJECT_NAME} PRIVATE minhook::minhook)
     
     target_compile_definitions(${PROJECT_NAME} PUBLIC KIERO_USE_MINHOOK=1)
 endif()
