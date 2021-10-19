@@ -23,11 +23,16 @@ file(READ "kiero/kiero.h" kiero_data)
 string(REGEX REPLACE "(#define (KIERO_INCLUDE|KIERO_USE_MINHOOK)[^\n]+)" "" kiero_data "${kiero_data}")
 file(WRITE "kiero/include/kiero.h" "${kiero_data}")
 
+file(READ "kiero/kiero.cpp" kiero_src)
+string(REGEX REPLACE "(#include \"kiero.h\")\n" "#include \"../include/kiero.h\"\n" kiero_src "${kiero_src}")
+string(REGEX REPLACE "(# include \"minhook/include/MinHook\.h\"\n)" "#include <MinHook.h>\n" kiero_src "${kiero_src}")
+file(WRITE "kiero/src/kiero.cpp" "${kiero_src}")
+
 # --------------------------------------------------------------------------------------------------------
 # Create library
 # --------------------------------------------------------------------------------------------------------
 
-add_library(${PROJECT_NAME} STATIC "kiero/kiero.cpp")
+add_library(${PROJECT_NAME} STATIC "kiero/src/kiero.cpp")
 target_include_directories(${PROJECT_NAME} PUBLIC "kiero/include/")
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
