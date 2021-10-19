@@ -21,14 +21,14 @@ endif()
 
 file(READ "kiero/kiero.h" kiero_data)
 string(REGEX REPLACE "(#define (KIERO_INCLUDE|KIERO_USE_MINHOOK)[^\n]+)" "" kiero_data "${kiero_data}")
-file(WRITE "kiero/kiero.h" "${kiero_data}")
+file(WRITE "kiero/include/kiero.h" "${kiero_data}")
 
 # --------------------------------------------------------------------------------------------------------
-# Fix up Kiero
+# Create library
 # --------------------------------------------------------------------------------------------------------
 
 add_library(${PROJECT_NAME} STATIC "kiero/kiero.cpp")
-target_include_directories(${PROJECT_NAME} PUBLIC "kiero")
+target_include_directories(${PROJECT_NAME} PUBLIC "kiero/include/")
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     target_compile_options(${PROJECT_NAME} PRIVATE "-Wno-microsoft-cast")
