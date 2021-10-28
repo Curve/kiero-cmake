@@ -23,14 +23,14 @@ set(kiero_minhook ON)
 - FetchContent
     ```cmake
     include(FetchContent)
-    FetchContent_Declare(kiero GIT_REPOSITORY "https://github.com/Curve/kiero")
+    FetchContent_Declare(kiero GIT_REPOSITORY "https://github.com/Curve/kiero-cmake")
 
     FetchContent_MakeAvailable(kiero)
     target_link_libraries(<YourLibrary> kiero)
     ```
 - Git Submodule
     ```bash
-    git submodule add "https://github.com/Curve/kiero"
+    git submodule add "https://github.com/Curve/kiero-cmake"
     git submodule update --init --recursive
     ```
     ```cmake
