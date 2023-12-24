@@ -24,8 +24,9 @@ string(REGEX REPLACE "(#define (KIERO_INCLUDE|KIERO_USE_MINHOOK)[^\n]+)" "" kier
 file(WRITE "../kiero-fixed/include/kiero.h" "${kiero_data}")
 
 file(READ "kiero/kiero.cpp" kiero_src)
+string(REGEX REPLACE "(#include <Windows.h>)\n" "#include <windows.h>\n" kiero_src "${kiero_src}")
 string(REGEX REPLACE "(#include \"kiero.h\")\n" "#include \"../include/kiero.h\"\n" kiero_src "${kiero_src}")
-string(REGEX REPLACE "(# include \"minhook/include/MinHook\.h\"\n)" "#include <MinHook.h>\n" kiero_src "${kiero_src}")
+string(REGEX REPLACE "(#include \"minhook/include/MinHook\.h\"\n)" "#include <MinHook.h>\n" kiero_src "${kiero_src}")
 file(WRITE "../kiero-fixed/src/kiero.cpp" "${kiero_src}")
 
 # --------------------------------------------------------------------------------------------------------
